@@ -31,6 +31,6 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+http.createServer(app).listen(process.env.PORT || 3000, function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
